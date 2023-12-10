@@ -2,18 +2,9 @@ import { Injectable } from '@angular/core';
 import {Apollo, gql} from "apollo-angular";
 import {SignupInput} from "../../signupinput";
 import {LoginInput} from "../../logininput";
+import {AuthResponse} from "../../authresponse";
 
-// const GET_USERS = gql`
-//     query {
-//       users {
-//         id
-//         email
-//         username
-//       }
-//     }
-// `;
-
-const SIGNUP = gql`
+const SIGNUP = gql<AuthResponse, { input: SignupInput }>`
     mutation Signup($input: SignupInput!) {
       signup(input: $input) {
         token
@@ -23,17 +14,12 @@ const SIGNUP = gql`
           username
           first_name
           last_name
-          tasks {
-            id
-            title
-            status
-          }
         }
       }
     }
 `;
 
-const LOGIN = gql`
+const LOGIN = gql<AuthResponse, LoginInput>`
   mutation Login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
       token
@@ -43,11 +29,6 @@ const LOGIN = gql`
         username
         first_name
         last_name
-        tasks {
-          id
-          title
-          status
-        }
       }
     }
   }
