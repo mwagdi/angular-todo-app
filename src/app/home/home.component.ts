@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {FormComponent} from "../form/form.component";
 import {Formtype} from "../formtype";
-import {UserService} from "../user.service";
+import {AuthService} from "../services/auth/auth.service";
 
 @Component({
   selector: 'app-home',
@@ -13,12 +13,10 @@ import {UserService} from "../user.service";
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  constructor(private userService: UserService) {}
+  constructor(private userService: AuthService) {}
 
   formType: Formtype = Formtype.LOGIN;
-  ngOnInit() {
-    this.userService.getUsers().valueChanges.subscribe(({data, loading}) => {
-      console.log({data, loading});
-    })
-  }
+  // ngOnInit() {
+  //
+  // }
 }
