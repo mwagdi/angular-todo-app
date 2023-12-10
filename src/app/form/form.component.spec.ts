@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { FormComponent } from './form.component';
 
 describe('FormComponent', () => {
@@ -8,10 +8,14 @@ describe('FormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FormComponent]
+      imports: [
+        ReactiveFormsModule,
+      ],
     })
-    .compileComponents();
-    
+      .compileComponents();
+  });
+
+  beforeEach(() => {
     fixture = TestBed.createComponent(FormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
