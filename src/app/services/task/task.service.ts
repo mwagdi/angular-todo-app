@@ -3,11 +3,16 @@ import { Apollo, gql } from 'apollo-angular';
 import { HttpHeaders } from '@angular/common/http';
 
 const GET_TASKS = gql`
-    query {
+    query ($name: String!) {
       tasks {
         id
         title
         status
+      }
+      __type (name: $name) {
+        enumValues {
+          name
+        }
       }
     }
 `;
@@ -23,6 +28,7 @@ export class TaskService {
   getTasks() {
     return this.apollo.watchQuery({
       query: GET_TASKS,
+      variables: { name: 'Status' },
       context: {
         headers: new HttpHeaders().set('Authorization', `Bearer ${this.token}`)
       }
