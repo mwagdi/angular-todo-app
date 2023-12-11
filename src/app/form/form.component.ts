@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Formtype } from '../formtype';
+import { FormType } from '../formType';
 import {
   FormControl,
   FormGroup,
@@ -30,7 +30,7 @@ export class FormComponent {
   /**
    * Receives form type from a parent component, could be 'login' or 'signup'
    */
-  @Input() formType!: Formtype;
+  @Input() formType!: FormType;
 
   /**
    * Create an instance of AuthService for user authentication manipulation
@@ -83,7 +83,9 @@ export class FormComponent {
       const signupFormData = this.signupForm.value;
       this.authService.signup(signupFormData as SignupInput)
         .subscribe({
-          next: value => console.log({ value }),
+          next: ({ data }) => {
+            if(data?.signup) localStorage.setItem('token', data.signup.token);
+          },
           error: error => console.log({ error }),
           complete: () => console.log('All done!')
         });
@@ -100,8 +102,12 @@ export class FormComponent {
     if(this.loginForm.valid) {
       this.authService.login(this.loginForm.value as LoginInput)
         .subscribe({
-          next: value => console.log({ value }),
-          error: error => console.log({ error }),
+          next: ({ data }) => {
+            if(data?.login) localStorage.setItem('token', data.login.token);
+          },
+          error: error => {
+            throw new Error(error.message);
+          },
           complete: () => console.log('All done!')
         });
     }

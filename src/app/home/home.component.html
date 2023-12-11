@@ -1,1 +1,11 @@
-<app-form [formType]="formType"></app-form>
+<div>
+  <ul>
+    <li>
+      <button (click)="changeFormType(FormType.LOGIN)">Login</button>
+    </li>
+    <li>
+      <button (click)="changeFormType(FormType.SIGNUP)">Signup</button>
+    </li>
+  </ul>
+  <app-form [formType]="formType"></app-form>
+</div>

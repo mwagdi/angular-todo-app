@@ -1,4 +1,4 @@
-export enum Formtype {
+export enum FormType {
   LOGIN = 'LOGIN',
   SIGNUP = 'SIGNUP'
 }

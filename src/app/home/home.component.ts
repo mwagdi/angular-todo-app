@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
-import {FormComponent} from "../form/form.component";
-import {Formtype} from "../formtype";
-import {AuthService} from "../services/auth/auth.service";
+import { Component } from '@angular/core';
+import { FormComponent } from '../form/form.component';
+import { FormType } from '../formType';
+import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -13,10 +13,13 @@ import {AuthService} from "../services/auth/auth.service";
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+  formType: FormType = FormType.LOGIN;
+
   constructor(private userService: AuthService) {}
 
-  formType: Formtype = Formtype.LOGIN;
-  // ngOnInit() {
-  //
-  // }
+  changeFormType(type: FormType) {
+    this.formType = type;
+  }
+
+  protected readonly FormType = FormType;
 }

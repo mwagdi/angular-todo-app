@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import {Apollo, gql} from "apollo-angular";
-import {SignupInput} from "../../signupinput";
-import {LoginInput} from "../../logininput";
-import {AuthResponse} from "../../authresponse";
+import { Apollo, gql } from 'apollo-angular';
+import { SignupInput } from '../../signupinput';
+import { LoginInput } from '../../logininput';
+import { AuthResponse } from '../../authresponse';
 
-const SIGNUP = gql<AuthResponse, { input: SignupInput }>`
+const SIGNUP = gql<{signup: AuthResponse}, { input: SignupInput }>`
     mutation Signup($input: SignupInput!) {
       signup(input: $input) {
         token
@@ -19,7 +19,7 @@ const SIGNUP = gql<AuthResponse, { input: SignupInput }>`
     }
 `;
 
-const LOGIN = gql<AuthResponse, LoginInput>`
+const LOGIN = gql<{ login: AuthResponse }, LoginInput>`
   mutation Login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
       token
@@ -41,12 +41,6 @@ export class AuthService {
 
   constructor(private apollo: Apollo) { }
 
-  // getUsers() {
-  //   return this.apollo.watchQuery({
-  //     query: GET_USERS
-  //   })
-  // }
-
   signup(input: SignupInput) {
     return this.apollo.mutate({
       mutation: SIGNUP,
@@ -57,7 +51,6 @@ export class AuthService {
   }
 
   login(input: LoginInput) {
-    console.log(input)
     return this.apollo.mutate({
       mutation: LOGIN,
       variables: input
