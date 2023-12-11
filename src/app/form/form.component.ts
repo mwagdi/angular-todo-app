@@ -9,6 +9,7 @@ import {
 import { AuthService } from '../services/auth/auth.service';
 import { LoginInput } from '../logininput';
 import { SignupInput } from '../signupinput';
+import { Router } from '@angular/router';
 
 /**
  * @Component for the forms on a page
@@ -35,7 +36,7 @@ export class FormComponent {
   /**
    * Create an instance of AuthService for user authentication manipulation
    */
-  constructor(private authService: AuthService ) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   /**
    * Create a new signup form using FormGroup
@@ -104,6 +105,7 @@ export class FormComponent {
         .subscribe({
           next: ({ data }) => {
             if(data?.login) localStorage.setItem('token', data.login.token);
+            this.router.navigateByUrl('/dashboard');
           },
           error: error => {
             throw new Error(error.message);
