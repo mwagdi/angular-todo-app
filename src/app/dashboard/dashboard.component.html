@@ -1,1 +1,2 @@
-<p>dashboard works!</p>
+<div draggable="true" (dragstart)="handleDragStart($event)" class="drag">Draggable</div>
+<div (dragover)="handleDragOver($event)" (drop)="handleDrop($event)" class="drop">Drop Zone</div>

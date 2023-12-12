@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { TaskService } from '../services/task/task.service';
-import { ApolloQueryResult } from '@apollo/client';
 
 interface TasksResponse {
   __type: {
@@ -19,6 +18,7 @@ interface TasksResponse {
 export class DashboardComponent {
   statusTypes = [];
   tasks: { id: number; title: string; status: string }[] = [];
+  dragged: EventTarget | null = null;
   constructor(private taskService: TaskService) {}
 
   ngOnInit() {
@@ -36,5 +36,22 @@ export class DashboardComponent {
         console.log('All done!');
       }
     });
+  }
+
+  handleDragStart(event: DragEvent){
+    this.dragged = event.target;
+  }
+
+  handleDragOver(event: DragEvent) {
+    event.preventDefault();
+  }
+
+  handleDrop(event: DragEvent) {
+    // prevent default action (open as a link for some elements)
+    event.preventDefault();
+    console.dir(event.target);
+    // move dragged element to the selected drop target
+    (<HTMLElement>this.dragged)?.parentNode?.removeChild(<Node>this.dragged);
+    (<HTMLElement>event.target)?.appendChild(<Node>this.dragged);
   }
 }
