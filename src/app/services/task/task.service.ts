@@ -1,8 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
 import { HttpHeaders } from '@angular/common/http';
+import { throwError } from 'rxjs';
 
-const GET_TASKS = gql`
+interface TasksResponse {
+  __type: {
+    enumValues: string[]
+  }
+  tasks: {id: number, title: string, status: string}[]
+}
+
+const GET_TASKS = gql<TasksResponse, NonNullable<unknown>>`
     query ($name: String!) {
       tasks {
         id
@@ -21,17 +29,21 @@ const GET_TASKS = gql`
   providedIn: 'root'
 })
 export class TaskService {
-  token = localStorage.getItem('token');
+  token = typeof localStorage === 'undefined' ? undefined : localStorage.getItem('token');
 
   constructor(private apollo: Apollo) { }
 
   getTasks() {
-    return this.apollo.watchQuery({
-      query: GET_TASKS,
-      variables: { name: 'Status' },
-      context: {
-        headers: new HttpHeaders().set('Authorization', `Bearer ${this.token}`)
-      }
-    });
+    if(this.token) {
+      return this.apollo.query({
+        query: GET_TASKS,
+        variables: { name: 'Status' },
+        context: {
+          headers: new HttpHeaders().set('Authorization', `Bearer ${this.token}`)
+        }
+      });
+    }
+
+    return throwError(new Error('User not logged in'));
   }
 }

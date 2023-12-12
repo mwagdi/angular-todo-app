@@ -52,7 +52,7 @@
       },
       {
         "file": ".eslintrc.json",
-        "hash": "11126496759614716797"
+        "hash": "2254474239069593311"
       },
       {
         "file": ".gitignore",
@@ -60,7 +60,7 @@
       },
       {
         "file": ".nx/cache/file-map.json",
-        "hash": "649599279361402894"
+        "hash": "12333590901639537431"
       },
       {
         "file": ".nx/cache/lockfile.hash",
@@ -136,7 +136,7 @@
       },
       {
         "file": "src/app/authresponse.ts",
-        "hash": "14411103590919562964"
+        "hash": "10565661725357085337"
       },
       {
         "file": "src/app/dashboard/dashboard.component.html",
@@ -168,19 +168,19 @@
       },
       {
         "file": "src/app/form/form.component.ts",
-        "hash": "16451547143303228529"
+        "hash": "17480522857326276025"
       },
       {
-        "file": "src/app/formtype.ts",
-        "hash": "4257953127750276867"
+        "file": "src/app/formType.ts",
+        "hash": "11528666996215073395"
       },
       {
         "file": "src/app/graphql.provider.ts",
-        "hash": "4612736109236345249"
+        "hash": "17742117622150662720"
       },
       {
         "file": "src/app/home/home.component.html",
-        "hash": "10177668012491776448"
+        "hash": "10056404136191214647"
       },
       {
         "file": "src/app/home/home.component.scss",
@@ -192,7 +192,7 @@
       },
       {
         "file": "src/app/home/home.component.ts",
-        "hash": "9101688653757292273"
+        "hash": "7681366441272756075"
       },
       {
         "file": "src/app/logininput.ts",
@@ -204,7 +204,15 @@
       },
       {
         "file": "src/app/services/auth/auth.service.ts",
-        "hash": "12211801995336794784"
+        "hash": "16488354536864512283"
+      },
+      {
+        "file": "src/app/services/task/task.service.spec.ts",
+        "hash": "12144199161912751038"
+      },
+      {
+        "file": "src/app/services/task/task.service.ts",
+        "hash": "7141856990623045227"
       },
       {
         "file": "src/app/signupinput.ts",
