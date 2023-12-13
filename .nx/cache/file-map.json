@@ -60,7 +60,7 @@
       },
       {
         "file": ".nx/cache/file-map.json",
-        "hash": "12333590901639537431"
+        "hash": "3858298893475419321"
       },
       {
         "file": ".nx/cache/lockfile.hash",
@@ -139,12 +139,28 @@
         "hash": "10565661725357085337"
       },
       {
+        "file": "src/app/boardcolumn/boardcolumn.component.html",
+        "hash": "17855061828684802499"
+      },
+      {
+        "file": "src/app/boardcolumn/boardcolumn.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/boardcolumn/boardcolumn.component.spec.ts",
+        "hash": "1027744081439102974"
+      },
+      {
+        "file": "src/app/boardcolumn/boardcolumn.component.ts",
+        "hash": "17869223287028559748"
+      },
+      {
         "file": "src/app/dashboard/dashboard.component.html",
-        "hash": "4894489786295920269"
+        "hash": "11016926805776637700"
       },
       {
         "file": "src/app/dashboard/dashboard.component.scss",
-        "hash": "3244421341483603138"
+        "hash": "15350297813109145975"
       },
       {
         "file": "src/app/dashboard/dashboard.component.spec.ts",
@@ -152,7 +168,7 @@
       },
       {
         "file": "src/app/dashboard/dashboard.component.ts",
-        "hash": "1819101786680610637"
+        "hash": "5202592320162992353"
       },
       {
         "file": "src/app/form/form.component.html",
@@ -192,7 +208,7 @@
       },
       {
         "file": "src/app/home/home.component.ts",
-        "hash": "7681366441272756075"
+        "hash": "4620786304730087071"
       },
       {
         "file": "src/app/logininput.ts",
@@ -212,7 +228,7 @@
       },
       {
         "file": "src/app/services/task/task.service.ts",
-        "hash": "7141856990623045227"
+        "hash": "13494995302755233487"
       },
       {
         "file": "src/app/signupinput.ts",

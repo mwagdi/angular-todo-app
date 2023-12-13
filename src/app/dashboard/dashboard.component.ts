@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { TaskService } from '../services/task/task.service';
 
 interface TasksResponse {
@@ -13,7 +13,8 @@ interface TasksResponse {
   standalone: true,
   imports: [],
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.scss'
+  styleUrl: './dashboard.component.scss',
+  encapsulation: ViewEncapsulation.None
 })
 export class DashboardComponent {
   statusTypes = [];
@@ -44,14 +45,14 @@ export class DashboardComponent {
 
   handleDragOver(event: DragEvent) {
     event.preventDefault();
+
   }
 
   handleDrop(event: DragEvent) {
-    // prevent default action (open as a link for some elements)
     event.preventDefault();
-    console.dir(event.target);
-    // move dragged element to the selected drop target
+    const { parentNode, className } = <HTMLElement>event.target;
+    const dropZone = className === 'drag' ? parentNode : event.target as HTMLElement;
     (<HTMLElement>this.dragged)?.parentNode?.removeChild(<Node>this.dragged);
-    (<HTMLElement>event.target)?.appendChild(<Node>this.dragged);
+    dropZone?.appendChild(<Node>this.dragged);
   }
 }

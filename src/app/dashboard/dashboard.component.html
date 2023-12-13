@@ -1,2 +1,5 @@
-<div draggable="true" (dragstart)="handleDragStart($event)" class="drag">Draggable</div>
-<div (dragover)="handleDragOver($event)" (drop)="handleDrop($event)" class="drop">Drop Zone</div>
+<div draggable="true" (dragstart)="handleDragStart($event)" (drop)="handleDrop($event)" class="drag">Draggable One</div>
+<div (dragover)="handleDragOver($event)" (drop)="handleDrop($event)" class="drop">
+  Drop Zone
+  <div draggable="true" (dragstart)="handleDragStart($event)" class="drag">Draggable Two</div>
+</div>
