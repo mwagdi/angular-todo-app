@@ -1,13 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { TaskService } from '../services/task/task.service';
 
-interface TasksResponse {
-  __type: {
-    enumValues: string[]
-  }
-  tasks: {id: number, title: string, status: string}
-}
-
 @Component({
   selector: 'app-dashboard',
   standalone: true,
@@ -17,8 +10,10 @@ interface TasksResponse {
   encapsulation: ViewEncapsulation.None
 })
 export class DashboardComponent {
-  statusTypes = [];
-  tasks: { id: number; title: string; status: string }[] = [];
+  statusColumns: {
+    name: string,
+    tickets: { id: number; title: string; status: string }[]
+  }[] = [];
   dragged: EventTarget | null = null;
   constructor(private taskService: TaskService) {}
 
@@ -26,9 +21,12 @@ export class DashboardComponent {
     this.taskService.getTasks().subscribe({
       next: ({ data }) => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-expect-error
-        this.statusTypes = data.__type.enumValues.map(value => value.name);
-        this.tasks = data.tasks ? data.tasks : [];
+        this.statusColumns = data.__type.enumValues.map(value => {
+          return {
+            name: value.name.replace('_', ' '),
+            tickets: data.tasks? data.tasks.filter(task => task.status === value.name) : []
+          };
+        });
       },
       error: err => {
         console.log({ err });

@@ -1,5 +1,18 @@
-<div draggable="true" (dragstart)="handleDragStart($event)" (drop)="handleDrop($event)" class="drag">Draggable One</div>
-<div (dragover)="handleDragOver($event)" (drop)="handleDrop($event)" class="drop">
-  Drop Zone
-  <div draggable="true" (dragstart)="handleDragStart($event)" class="drag">Draggable Two</div>
+<div class="board">
+  @for (column of statusColumns; track column.name) {
+    <div class="board__column">
+      <h3 class="board__column-title">{{column.name}}</h3>
+      <div
+        class="board__column-dropzone"
+        (dragover)="handleDragOver($event)" (drop)="handleDrop($event)">
+        @for (ticket of column.tickets; track ticket.id) {
+          <div class="board__ticket" (dragstart)="handleDragStart($event)" draggable="true">
+            {{ticket.title}}
+          </div>
+        }
+      </div>
+    </div>
+  } @empty {
+    Loading...
+  }
 </div>

@@ -5,7 +5,7 @@ import { throwError } from 'rxjs';
 
 interface TasksResponse {
   __type: {
-    enumValues: string[]
+    enumValues: { name: string }[]
   }
   tasks: {id: number, title: string, status: string}[]
 }

@@ -60,7 +60,7 @@
       },
       {
         "file": ".nx/cache/file-map.json",
-        "hash": "3858298893475419321"
+        "hash": "6308159697660036538"
       },
       {
         "file": ".nx/cache/lockfile.hash",
@@ -156,11 +156,11 @@
       },
       {
         "file": "src/app/dashboard/dashboard.component.html",
-        "hash": "11016926805776637700"
+        "hash": "14996436479792912035"
       },
       {
         "file": "src/app/dashboard/dashboard.component.scss",
-        "hash": "15350297813109145975"
+        "hash": "16046984861859152323"
       },
       {
         "file": "src/app/dashboard/dashboard.component.spec.ts",
@@ -168,7 +168,7 @@
       },
       {
         "file": "src/app/dashboard/dashboard.component.ts",
-        "hash": "5202592320162992353"
+        "hash": "926785415059472372"
       },
       {
         "file": "src/app/form/form.component.html",
