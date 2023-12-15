@@ -1,12 +1,12 @@
 <div class="board">
   @for (column of statusColumns; track column.name) {
     <div class="board__column">
-      <h3 class="board__column-title">{{column.name}}</h3>
+      <h3 class="board__column-title">{{column.name.replace('_', ' ')}}</h3>
       <div
         class="board__column-dropzone"
-        (dragover)="handleDragOver($event)" (drop)="handleDrop($event)">
+        (dragover)="handleDragOver($event)" (drop)="handleDrop($event)" [attr.status_name]="column.name">
         @for (ticket of column.tickets; track ticket.id) {
-          <div class="board__ticket" (dragstart)="handleDragStart($event)" draggable="true">
+          <div class="board__ticket" (dragstart)="handleDragStart($event)" draggable="true" [attr.task_id]="ticket.id">
             {{ticket.title}}
           </div>
         }

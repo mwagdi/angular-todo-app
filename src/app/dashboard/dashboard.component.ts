@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { TaskService } from '../services/task/task.service';
+import { StatusType, TaskEditInput } from '../taskEditInput';
 
 @Component({
   selector: 'app-dashboard',
@@ -23,7 +24,7 @@ export class DashboardComponent {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         this.statusColumns = data.__type.enumValues.map(value => {
           return {
-            name: value.name.replace('_', ' '),
+            name: value.name,
             tickets: data.tasks? data.tasks.filter(task => task.status === value.name) : []
           };
         });
@@ -48,8 +49,19 @@ export class DashboardComponent {
 
   handleDrop(event: DragEvent) {
     event.preventDefault();
+    const id = parseInt((<HTMLElement>this.dragged)?.getAttribute('task_id') as string);
     const { parentNode, className } = <HTMLElement>event.target;
-    const dropZone = className === 'drag' ? parentNode : event.target as HTMLElement;
+    const dropZone = event.target as HTMLElement;
+    const status = dropZone.getAttribute('status_name') as StatusType;
+
+    this.taskService.editTask(id, { status }).subscribe({
+      next: value => {
+        console.log({ value });
+      },
+      error: err => {},
+      complete: () => {}
+    });
+
     (<HTMLElement>this.dragged)?.parentNode?.removeChild(<Node>this.dragged);
     dropZone?.appendChild(<Node>this.dragged);
   }
