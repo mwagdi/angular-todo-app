@@ -1,17 +1,35 @@
+@import "colors";
+
 .board {
   display: flex;
   height: 100%;
+  gap: 16px;
+  color: $rich-black;
+  margin: auto;
+  max-width: 1280px;
 
   &__column {
     flex: 1;
     display: flex;
     flex-direction: column;
+    background: $azul;
+    border-radius: 20px;
 
     &-dropzone {
       flex-grow: 1;
+      margin: 8px;
     }
     &-title {
       text-align: center;
     }
+  }
+
+  &__ticket {
+    background: $pacific-cyan;
+    margin-bottom: 8px;
+    padding: 16px;
+    min-height: 80px;
+    border-radius: 4px;
+    color: $rich-black;
   }
 }
