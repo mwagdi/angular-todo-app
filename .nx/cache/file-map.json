@@ -60,7 +60,7 @@
       },
       {
         "file": ".nx/cache/file-map.json",
-        "hash": "6308159697660036538"
+        "hash": "3410034090787089076"
       },
       {
         "file": ".nx/cache/lockfile.hash",
@@ -92,7 +92,7 @@
       },
       {
         "file": "angular.json",
-        "hash": "2715489093757131939"
+        "hash": "294811393591628883"
       },
       {
         "file": "package-lock.json",
@@ -105,6 +105,10 @@
       {
         "file": "server.ts",
         "hash": "7713808127824314998"
+      },
+      {
+        "file": "src/_colors.scss",
+        "hash": "1784843174144933792"
       },
       {
         "file": "src/app/app.component.html",
@@ -156,11 +160,11 @@
       },
       {
         "file": "src/app/dashboard/dashboard.component.html",
-        "hash": "14996436479792912035"
+        "hash": "14689672496536776570"
       },
       {
         "file": "src/app/dashboard/dashboard.component.scss",
-        "hash": "16046984861859152323"
+        "hash": "11325857447482983111"
       },
       {
         "file": "src/app/dashboard/dashboard.component.spec.ts",
@@ -168,11 +172,11 @@
       },
       {
         "file": "src/app/dashboard/dashboard.component.ts",
-        "hash": "926785415059472372"
+        "hash": "16702798497131088969"
       },
       {
         "file": "src/app/form/form.component.html",
-        "hash": "13040569770721163625"
+        "hash": "7071047522170190879"
       },
       {
         "file": "src/app/form/form.component.scss",
@@ -228,11 +232,15 @@
       },
       {
         "file": "src/app/services/task/task.service.ts",
-        "hash": "13494995302755233487"
+        "hash": "1572458683807841882"
       },
       {
         "file": "src/app/signupinput.ts",
         "hash": "15442746731490875479"
+      },
+      {
+        "file": "src/app/taskEditInput.ts",
+        "hash": "12960665710736806431"
       },
       {
         "file": "src/app/user.ts",
@@ -260,7 +268,7 @@
       },
       {
         "file": "src/styles.scss",
-        "hash": "5195668842064076916"
+        "hash": "17837468934424596354"
       },
       {
         "file": "tsconfig.app.json",

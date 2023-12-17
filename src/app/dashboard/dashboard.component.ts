@@ -1,11 +1,16 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { TaskService } from '../services/task/task.service';
 import { StatusType } from '../taskEditInput';
+import { ModalComponent } from '../modal/modal.component';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [],
+  imports: [
+    ModalComponent,
+    NgIf
+  ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
   encapsulation: ViewEncapsulation.None
@@ -15,6 +20,7 @@ export class DashboardComponent implements OnInit{
     name: string,
     tickets: { id: number; title: string; status: string }[]
   }[] = [];
+  modalOpen = false;
   dragged: EventTarget | null = null;
   constructor(private taskService: TaskService) {}
 
